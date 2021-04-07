@@ -131,4 +131,17 @@ const data = [
     article.appendChild(paraTwo);
     article.appendChild(paraThree);
     article.appendChild(spanButton);
+
+    article.classList.add("article");
+    paraDate.classList.add("date");
+    spanButton.classList.add("expandButton");
+
+    headerTitle.textContent = title;
+    paraDate.textContent = date;
+    paraOne.textContent = firstParagraph;
+    paraTwo.textContent = secondParagraph;
+    paraThree.textContent = thirdParagraph;
+  
   }
+
+  
