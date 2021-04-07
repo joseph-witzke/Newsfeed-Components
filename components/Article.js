@@ -141,7 +141,13 @@ const data = [
     paraOne.textContent = firstParagraph;
     paraTwo.textContent = secondParagraph;
     paraThree.textContent = thirdParagraph;
-  
+
+    spanButton.addEventListener('click', (event) => {
+      article.classList.toggle("article-open");
+    });
+
+    return article;
   }
 
-  
+const test = articleMaker({ title: "test title", date: "test date", firstParagraph: "test content", secondParagraph: "test content", thirdParagraph: "test content" });
+console.log(test);
