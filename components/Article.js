@@ -141,6 +141,7 @@ const data = [
     paraOne.textContent = firstParagraph;
     paraTwo.textContent = secondParagraph;
     paraThree.textContent = thirdParagraph;
+    spanButton.textContent = '+';
 
     spanButton.addEventListener('click', (event) => {
       article.classList.toggle("article-open");
@@ -149,5 +150,10 @@ const data = [
     return article;
   }
 
-const test = articleMaker({ title: "test title", date: "test date", firstParagraph: "test content", secondParagraph: "test content", thirdParagraph: "test content" });
-console.log(test);
+// const test = articleMaker({ title: "test title", date: "test date", firstParagraph: "test content", secondParagraph: "test content", thirdParagraph: "test content" });
+// console.log(test);
+
+data.forEach((object) => {
+  const newArticle = articleMaker(object);
+  return articles.appendChild(newArticle);
+});
