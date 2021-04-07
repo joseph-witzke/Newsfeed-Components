@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Test Article",
+    date: "Oct 26, 2020",
+    firstParagraph: `This is my first paragraph.`,
+    secondParagraph: `This is my second paragraph.`,
+    thirdParagraph: `This is my third paragraph.`,
   }
 ];
 
@@ -157,3 +164,5 @@ data.forEach((object) => {
   const newArticle = articleMaker(object);
   return articles.appendChild(newArticle);
 });
+
+let myArticle = newArticle()
