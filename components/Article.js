@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Test Article",
+    date: "Oct 26, 2020",
+    firstParagraph: `This is my first paragraph.`,
+    secondParagraph: `This is my second paragraph.`,
+    thirdParagraph: `This is my third paragraph.`,
   }
 ];
 
@@ -93,7 +100,7 @@ const data = [
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
-
+  
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -114,3 +121,47 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+  const articles = document.querySelector(".articles");
+
+  function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}){
+    const article = document.createElement("div");
+    const headerTitle = document.createElement("h2");
+    const paraDate = document.createElement("p");
+    const paraOne = document.createElement("p");
+    const paraTwo = document.createElement("p");
+    const paraThree = document.createElement("p");
+    const spanButton = document.createElement("span");
+    
+    article.appendChild(headerTitle);
+    article.appendChild(paraDate);
+    article.appendChild(paraOne);
+    article.appendChild(paraTwo);
+    article.appendChild(paraThree);
+    article.appendChild(spanButton);
+
+    article.classList.add("article");
+    paraDate.classList.add("date");
+    spanButton.classList.add("expandButton");
+
+    headerTitle.textContent = title;
+    paraDate.textContent = date;
+    paraOne.textContent = firstParagraph;
+    paraTwo.textContent = secondParagraph;
+    paraThree.textContent = thirdParagraph;
+    spanButton.textContent = '+';
+
+    spanButton.addEventListener('click', (event) => {
+      article.classList.toggle("article-open");
+    });
+
+    return article;
+  }
+
+// const test = articleMaker({ title: "test title", date: "test date", firstParagraph: "test content", secondParagraph: "test content", thirdParagraph: "test content" });
+// console.log(test);
+
+data.forEach((object) => {
+  const newArticle = articleMaker(object);
+  return articles.appendChild(newArticle);
+});
+
