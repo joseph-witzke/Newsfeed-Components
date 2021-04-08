@@ -165,4 +165,3 @@ data.forEach((object) => {
   return articles.appendChild(newArticle);
 });
 
-let myArticle = newArticle()
